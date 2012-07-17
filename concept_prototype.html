@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+<head>
+  <title>Nixie Tube Timer Test</title>
+  <style>
+    html {
+      width: 100%;
+      height: 100%;
+      display: table;
+    }
+    body {
+      background: #111;
+      display: table-cell;
+      vertical-align: middle;
+    }
+    h1 {
+      font: normal 800%/1.5em Quicksand, sans-serif;
+      color: #ffe74d;
+      text-align: center;
+      text-shadow: 0 0 0.1em #ffe74d,
+                   0 0 0.5em #f12804,
+                   0 0 0.5em #f12804,
+                   0 0 0.5em #f12804;
+    }
+    h1 span {
+      width: .8em;
+      display: inline-block;
+      position: relative;
+    }
+    h1 span::before {
+      content: '7';
+      position: absolute;
+      left: 0.1em;
+      opacity: .05;
+      font-weight: 200;
+      text-shadow: none;
+    }
+    h1 span::after {
+      content: '9';
+      position: absolute;
+      left: 0.1em;
+      opacity: .05;
+      font-weight: 200;
+      text-shadow: none;
+    }
+  </style>
+</head>
+<body>
+  <h1><span id="h1">1</span><span id="h2">1</span>:<span id="m1">2</span><span id="m2">2</span>:<span id="s1">3</span><span id="s2">3</span></h1>
+</body>
+</html>
