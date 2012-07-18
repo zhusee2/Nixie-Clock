@@ -24,9 +24,9 @@ $.extend(NixieClock.prototype, {
     
     var timeArray = timeString.split(':'),
         newTime = {
-          hour: timeArray[0],
-          minute: timeArray[1],
-          second: timeArray[2]
+          hour: parseInt(timeArray[0]),
+          minute: parseInt(timeArray[1]),
+          second: parseInt(timeArray[2])
         };
     
     return newTime;
