@@ -1,0 +1,70 @@
+html {
+  height: 100%;
+}
+
+body {
+  background: #111;
+  color: #dedede;
+  padding: 5%;
+}
+
+.nixie_clock {
+  font: 200 800%/1 Quicksand, sans-serif;
+  color: #ffe74d;
+}
+.nixie_clock * {
+  box-sizing: border-box;
+}
+
+.nixie_clock .hour,
+.nixie_clock .minute,
+.nixie_clock .second,
+.nixie_clock .seperator {
+  width: 1.61em;
+  float: left;
+}
+.nixie_clock .seperator {
+  width: 0.5em;
+  text-align: center;
+}
+
+.nixie_clock .digit {
+  width: 0.8em;
+  height: 1em;
+  text-align: center;
+  position: relative;
+  float: left;
+}
+
+.nixie_clock .digit span {
+  -webkit-transition: opacity 250ms linear;
+}
+
+.nixie_clock .digit span {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.nixie_clock .digit span,
+.nixie_clock .digit span.inactive {
+  font-weight: 200;
+  opacity: .05;
+}
+
+.nixie_clock .digit span.active,
+.nixie_clock .digit span.fading,
+.nixie_clock .seperator {
+  text-shadow: 0 0 0.1em #ffe74d,
+               0 0 0.5em #f12804,
+               0 0 0.5em #f12804,
+               0 0 0.5em #f12804;
+  opacity: 1;
+  font-weight: normal;
+}
+.nixie_clock .digit span.fading {
+  opacity: .05;
+}
+
