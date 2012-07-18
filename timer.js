@@ -19,7 +19,18 @@ $.extend(NixieClock.prototype, {
 
   //Functions
   init: function() {},
-  parseTime: function() {},
+  parseTimeString: function(timeString) {
+    if(!timeString) timeString = this.targetElement.attr('data_time');
+    
+    var timeArray = timeString.split(':'),
+        newTime = {
+          hour: timeArray[0],
+          minute: timeArray[1],
+          second: timeArray[2]
+        };
+    
+    return newTime;
+  },
   setTime: function(newHour, newMinute, newSecond) {
     this.time = {
       hour: newHour,
