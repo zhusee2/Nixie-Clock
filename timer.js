@@ -32,15 +32,32 @@ $.extend(NixieClock.prototype, {
     return newTime;
   },
   setTime: function(newHour, newMinute, newSecond) {
-    this.time = {
-      hour: newHour,
-      minute: newMinute,
-      second: newSecond
-    };
+    var newTime = {};
 
-    this.setHour(newHour);
-    this.setMinute(newMinute);
-    this.setSecond(newSecond);
+    switch (typeof newHour) {
+      case 'string':
+        newTime = this.parseTimeString(newHour);
+        break;
+      case 'number':
+        newTime = {
+          hour: newHour,
+          minute: newMinute,
+          second: newSecond
+        };
+        break;
+      case 'object':
+        newTime = newHour;
+        break;
+      default:
+        return false;
+        break;
+    }
+
+    this.time = newTime;
+
+    this.setHour(newTime.hour);
+    this.setMinute(newTime.minute);
+    this.setSecond(newTime.second);
   },
   setHour: function(newHour) {
     this.hour = newHour;
