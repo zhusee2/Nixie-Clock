@@ -9,8 +9,11 @@ body {
 }
 
 .nixie_clock {
+  width: 6em;
+  height: 1em;
   font: 200 800%/1 Quicksand, sans-serif;
   color: #ffe74d;
+  padding: 0.25em 0;
 }
 .nixie_clock * {
   box-sizing: border-box;
@@ -20,7 +23,7 @@ body {
 .nixie_clock .minute,
 .nixie_clock .second,
 .nixie_clock .seperator {
-  width: 1.61em;
+  width: 1.6em;
   float: left;
 }
 .nixie_clock .seperator {
