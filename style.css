@@ -37,7 +37,7 @@ body {
 }
 
 .nixie_clock .digit span {
-  -webkit-transition: opacity 250ms linear;
+  -webkit-transition: opacity 150ms linear;
 }
 
 .nixie_clock .digit span {
