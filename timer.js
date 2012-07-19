@@ -173,5 +173,12 @@ $.extend(NixieClock.prototype, {
 
 
 $(document).ready(function() {
-
+  var nixie = new NixieClock('.nixie_clock'),
+      now = new Date();
+  nixie.init();
+  nixie.setTime(now.getHours(), now.getMinutes(), now.getSeconds());
+  (function runClock() {
+    nixie.increaseBySecond();
+    setTimeout(runClock, 1000);
+  })();
 });
