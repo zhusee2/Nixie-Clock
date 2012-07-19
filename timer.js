@@ -18,7 +18,30 @@ $.extend(NixieClock.prototype, {
   targetElement: undefined,
 
   //Functions
-  init: function() {},
+  init: function() {
+    var root = this.targetElement;
+    if(!root.hasClass('nixie_clock')) root.addClass('nixie_clock');
+    root.empty();
+    
+    root.append('<div class="hour">', '<div class="seperator">', '<div class="minute">', '<div class="seperator">', '<div class="second">');
+    
+    var digitElements = $('<div class="digit">');
+    for(var i = 0; i < 10; i++) {
+      digitElements.append('<span class="d' + i + '">' + i + '</span>');
+    }
+    
+    root.children('.hour, .minute, .second').each(function(i, e) {
+      var prefix = $(e).attr('class').charAt(0);
+      
+      $(e)
+        .append(digitElements.clone().addClass(prefix + '1'))
+        .append(digitElements.clone().addClass(prefix + '2'));
+    });
+    
+    root.children('.seperator').text(':');
+    
+    if(root.attr('data_time') !== undefined) this.parseTimeString();
+  },
   parseTimeString: function(timeString) {
     if(!timeString) timeString = this.targetElement.attr('data_time');
     
